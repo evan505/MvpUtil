@@ -21,6 +21,11 @@ public class DemoActivity extends BaseActivity<DemoContract.AgentPresenter> impl
     }
 
     @Override
+    public void initViewAndListener() {
+
+    }
+
+    @Override
     public void setEmptyView() {
 
     }

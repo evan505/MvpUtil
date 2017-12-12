@@ -1,6 +1,6 @@
 package com.zyf.mvpdemo;
 
-import com.zyf.mvputil.BaseActivity;
+import com.zyf.mvputil.model.Model;
 
 /**
  * @author zyf
@@ -9,22 +9,34 @@ import com.zyf.mvputil.BaseActivity;
  */
 
 public class MainPresenter implements MainContract.Presenter {
-    BaseActivity mBaseActivity;
     MainContract.View mView;
+    Model mModel;
 
-    public MainPresenter(BaseActivity baseActivity, MainContract.View view) {
-        mBaseActivity = baseActivity;
+    public MainPresenter(MainContract.View view, Model model) {
         mView = view;
+        mModel = model;
     }
 
     @Override
     public void start() {
+        mView.showLoadingDialog();
+        mModel.getData("参数", new Model.DataLoadCallback() {
+            @Override
+            public void onDataLoad(String data) {
+                mView.dismissLoadingDialog();
+                mView.setContent(data);
+            }
 
+            @Override
+            public void onDataLoadFail(String reason) {
+                mView.dismissLoadingDialog();
+                mView.setContent(reason);
+            }
+        });
     }
 
     @Override
     public void stop() {
-
     }
 
     @Override

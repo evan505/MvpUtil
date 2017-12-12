@@ -12,7 +12,18 @@ import com.zyf.mvputil.LifeCyclePresenter;
 
 public interface MainContract {
     interface View extends BaseView {
+        /**
+         * 显示加载弹框
+         * @param strings
+         */
+        void showLoadingDialog(String...strings);
 
+        /**
+         * 隐藏加载弹框
+         */
+        void dismissLoadingDialog();
+
+        void setContent(String content);
     }
 
     interface Presenter extends BasePresenter, LifeCyclePresenter {
