@@ -15,7 +15,9 @@ import com.zyf.mvputil.widget.CustomProgressDialog;
  * @date 2017/12/12
  * @time 15:22
  */
-public abstract class BaseActivity<P extends BasePresenter & LifeCyclePresenter> extends AppCompatActivity {
+public abstract class BaseActivity<P extends BasePresenter>
+        extends AppCompatActivity
+        implements BaseView {
 
     public P mPresent;
 
@@ -38,9 +40,15 @@ public abstract class BaseActivity<P extends BasePresenter & LifeCyclePresenter>
      */
     public abstract void initViewAndListener();
 
+    /**
+     *
+     */
     public void beforeContentView() {
     }
 
+    /**
+     *
+     */
     public void afterContentView() {
     }
 
@@ -64,7 +72,7 @@ public abstract class BaseActivity<P extends BasePresenter & LifeCyclePresenter>
         if (mPresent == null) {
             throw new RuntimeException("Varible mPresent might not have been initialized");
         }
-        mPresent.onResume();
+//        mPresent.onResume();
     }
 
     @Override
@@ -73,7 +81,7 @@ public abstract class BaseActivity<P extends BasePresenter & LifeCyclePresenter>
         if (mPresent == null) {
             throw new RuntimeException("Varible mPresent might not have been initialized");
         }
-        mPresent.onPause();
+//        mPresent.onPause();
     }
 
     @Override
@@ -109,8 +117,10 @@ public abstract class BaseActivity<P extends BasePresenter & LifeCyclePresenter>
                 dismissLoadDialog();
             }
             return false;
+
         }
     };
+
 
     /**
      * show loading dialog
@@ -122,6 +132,7 @@ public abstract class BaseActivity<P extends BasePresenter & LifeCyclePresenter>
 
     /**
      * show loading dialog
+     *
      * @param text 文本
      * @param b    点击文本外部 dialog是否消失
      */

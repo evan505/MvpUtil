@@ -1,7 +1,8 @@
 package com.zyf.mvputil.model;
 
-import android.os.Handler;
 import android.os.Message;
+
+import com.zyf.mvputil.UIHandler;
 
 /**
  * @author zyf
@@ -13,9 +14,9 @@ public class SourceModel implements Model {
 
     DataLoadCallback mLoadCallback;
 
-    private Handler mHandler = new Handler(new Handler.Callback() {
+    private UIHandler mUIHandler = new UIHandler() {
         @Override
-        public boolean handleMessage(Message msg) {
+        protected void handleUIMessage(Message msg) {
             switch (msg.what) {
                 case 0:
                     mLoadCallback.onDataLoad(msg.obj.toString());
@@ -23,9 +24,8 @@ public class SourceModel implements Model {
                 case 1:
                     break;
             }
-            return false;
         }
-    });
+    };
 
     @Override
     public void getData(String params, DataLoadCallback callback) {
@@ -36,7 +36,7 @@ public class SourceModel implements Model {
                 Message msg = Message.obtain();
                 msg.what = 0;
                 msg.obj = params;
-                mHandler.sendMessage(msg);
+                mUIHandler.sendMessage(msg);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -52,6 +52,11 @@ public class SourceModel implements Model {
     @Override
     public boolean removeAll() {
         return false;
+    }
+
+    @Override
+    public void interrupLoadData() {
+        mUIHandler.cancelAllRequest();
     }
 
     public void stop() {

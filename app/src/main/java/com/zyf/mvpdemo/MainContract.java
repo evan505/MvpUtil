@@ -2,7 +2,6 @@ package com.zyf.mvpdemo;
 
 import com.zyf.mvputil.BasePresenter;
 import com.zyf.mvputil.BaseView;
-import com.zyf.mvputil.LifeCyclePresenter;
 
 /**
  * @author zyf
@@ -14,9 +13,10 @@ public interface MainContract {
     interface View extends BaseView {
         /**
          * 显示加载弹框
+         *
          * @param strings
          */
-        void showLoadingDialog(String...strings);
+        void showLoadingDialog(String... strings);
 
         /**
          * 隐藏加载弹框
@@ -26,7 +26,7 @@ public interface MainContract {
         void setContent(String content);
     }
 
-    interface Presenter extends BasePresenter, LifeCyclePresenter {
+    interface Presenter extends BasePresenter {
 
     }
 }

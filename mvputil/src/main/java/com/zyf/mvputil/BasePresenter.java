@@ -16,4 +16,9 @@ public interface BasePresenter {
      * 关闭
      */
     void stop();
+
+    /**
+     * 中断请求
+     */
+    void interrupHttp();
 }

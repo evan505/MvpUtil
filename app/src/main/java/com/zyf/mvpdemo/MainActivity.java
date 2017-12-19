@@ -12,10 +12,6 @@ import com.zyf.mvputil.model.SourceModel;
 public class MainActivity extends BaseActivity<MainContract.Presenter> implements MainContract.View {
     TextView mTvContent;
 
-    @Override
-    public void setEmptyView() {
-
-    }
 
     @Override
     public int getLayoutId() {
@@ -24,14 +20,20 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
 
     @Override
     public void initPresent() {
-        mPresent = new MainPresenter(this, new SourceModel());
+        mPresent = new MainPresenter(new SourceModel());
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mPresent.interrupHttp();
     }
 
     @Override
     public void initViewAndListener() {
         mTvContent = (TextView) findViewById(R.id.tv_content);
     }
-
 
 
     @Override

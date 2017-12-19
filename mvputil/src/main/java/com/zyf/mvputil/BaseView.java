@@ -10,5 +10,5 @@ public interface BaseView {
     /**
      * 设置空内容的图标
      */
-    void setEmptyView();
+//    void setEmptyView();
 }

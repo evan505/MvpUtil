@@ -12,15 +12,15 @@ public class MainPresenter implements MainContract.Presenter {
     MainContract.View mView;
     Model mModel;
 
-    public MainPresenter(MainContract.View view, Model model) {
-        mView = view;
+    public MainPresenter(Model model) {
         mModel = model;
     }
 
     @Override
     public void start() {
-        mView.showLoadingDialog();
+        mView.showLoadingDialog("loading");
         mModel.getData("参数", new Model.DataLoadCallback() {
+
             @Override
             public void onDataLoad(String data) {
                 mView.dismissLoadingDialog();
@@ -40,12 +40,8 @@ public class MainPresenter implements MainContract.Presenter {
     }
 
     @Override
-    public void onResume() {
-
+    public void interrupHttp() {
+        mModel.interrupLoadData();
     }
 
-    @Override
-    public void onPause() {
-
-    }
 }

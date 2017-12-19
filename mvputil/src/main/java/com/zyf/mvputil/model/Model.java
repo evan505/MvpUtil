@@ -8,6 +8,7 @@ package com.zyf.mvputil.model;
 
 public interface Model {
     interface DataLoadCallback {
+
         /**
          * 数据加载成功
          * @param data
@@ -43,4 +44,9 @@ public interface Model {
      * @return
      */
     boolean removeAll();
+
+    /**
+     * 中断加载数据
+     */
+    void interrupLoadData();
 }
