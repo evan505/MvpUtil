@@ -63,6 +63,7 @@ public abstract class BaseActivity<P extends BasePresenter>
         if (mPresent == null) {
             throw new RuntimeException("Varible mPresent might not have been initialized");
         }
+        mPresent.attachView(this);
         mPresent.start();
     }
 
@@ -89,6 +90,7 @@ public abstract class BaseActivity<P extends BasePresenter>
         if (mPresent == null) {
             throw new RuntimeException("Varible mPresent might not have been initialized");
         }
+        mPresent.detachView();
         mPresent.stop();
         super.onDestroy();
     }

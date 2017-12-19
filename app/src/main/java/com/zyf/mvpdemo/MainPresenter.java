@@ -1,5 +1,6 @@
 package com.zyf.mvpdemo;
 
+import com.zyf.mvputil.BaseView;
 import com.zyf.mvputil.model.Model;
 
 /**
@@ -37,6 +38,16 @@ public class MainPresenter implements MainContract.Presenter {
 
     @Override
     public void stop() {
+    }
+
+    @Override
+    public void attachView(BaseView view) {
+        mView = (MainContract.View) view;
+    }
+
+    @Override
+    public void detachView() {
+        mView = null;
     }
 
     @Override

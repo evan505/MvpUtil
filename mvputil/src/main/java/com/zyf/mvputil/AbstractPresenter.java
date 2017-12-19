@@ -12,15 +12,15 @@ public abstract class AbstractPresenter<V extends BaseView> implements BasePrese
     String TAG = "AbstractPresenter";
     private V mView;
 
-    public void attachView(V view) {
-        mView = view;
-        Log.i(TAG, "----attachView----");
-    }
-
-    public void detachView() {
-        mView = null;
-        Log.i(TAG, "----detachView----");
-    }
+//    public void attachView(V view) {
+//        mView = view;
+//        Log.i(TAG, "----attachView----");
+//    }
+//
+//    public void detachView() {
+//        mView = null;
+//        Log.i(TAG, "----detachView----");
+//    }
 
     public V getMvpView() {
         Log.i(TAG, "----getMvpView----");

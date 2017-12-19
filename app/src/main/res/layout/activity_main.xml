@@ -8,7 +8,6 @@
     tools:context="com.zyf.mvpdemo.MainActivity">
 
     <TextView
-        android:text="qqq"
         android:id="@+id/tv_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

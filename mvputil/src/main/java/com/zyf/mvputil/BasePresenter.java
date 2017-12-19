@@ -6,7 +6,7 @@ package com.zyf.mvputil;
  * @time 15:09
  */
 
-public interface BasePresenter {
+public interface BasePresenter<V extends BaseView> {
     /**
      * 开启
      */
@@ -16,6 +16,17 @@ public interface BasePresenter {
      * 关闭
      */
     void stop();
+
+    /**
+     * 绑定View
+     * @param view
+     */
+    void attachView(V view);
+
+    /**
+     * 移除MVP View
+     */
+    void detachView();
 
     /**
      * 中断请求
