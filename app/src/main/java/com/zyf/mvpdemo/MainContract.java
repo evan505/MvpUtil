@@ -26,7 +26,7 @@ public interface MainContract {
         void setContent(String content);
     }
 
-    interface Presenter extends BasePresenter {
+    interface Presenter<V extends BaseView> extends BasePresenter{
 
     }
 }

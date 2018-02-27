@@ -15,8 +15,7 @@ import com.zyf.mvputil.widget.CustomProgressDialog;
  * @date 2017/12/12
  * @time 15:22
  */
-public abstract class BaseActivity<P extends BasePresenter>
-        extends AppCompatActivity
+public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity
         implements BaseView {
 
     public P mPresent;
@@ -70,28 +69,30 @@ public abstract class BaseActivity<P extends BasePresenter>
     @Override
     protected void onResume() {
         super.onResume();
-        if (mPresent == null) {
-            throw new RuntimeException("Varible mPresent might not have been initialized");
-        }
+//        if (mPresent == null) {
+//            throw new RuntimeException("Varible mPresent might not have been initialized");
+//        }
 //        mPresent.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        if (mPresent == null) {
-            throw new RuntimeException("Varible mPresent might not have been initialized");
-        }
+//        if (mPresent == null) {
+//            throw new RuntimeException("Varible mPresent might not have been initialized");
+//        }
 //        mPresent.onPause();
     }
 
     @Override
     protected void onDestroy() {
-        if (mPresent == null) {
-            throw new RuntimeException("Varible mPresent might not have been initialized");
+//        if (mPresent == null) {
+//            throw new RuntimeException("Varible mPresent might not have been initialized");
+//        }
+        if (mPresent != null) {
+            mPresent.detachView();
+            mPresent.stop();
         }
-        mPresent.detachView();
-        mPresent.stop();
         super.onDestroy();
     }
 

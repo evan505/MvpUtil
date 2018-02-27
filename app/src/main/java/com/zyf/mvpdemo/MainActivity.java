@@ -3,13 +3,13 @@ package com.zyf.mvpdemo;
 import android.widget.TextView;
 
 import com.zyf.mvputil.BaseActivity;
-import com.zyf.mvputil.model.SourceModel;
+import com.zyf.mvputil.model.AnalogSourceModel;
 
 /**
  * @author zyf
  * @date 2017/12/12
  */
-public class MainActivity extends BaseActivity<MainContract.Presenter> implements MainContract.View {
+public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
     TextView mTvContent;
 
 
@@ -20,7 +20,7 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
 
     @Override
     public void initPresent() {
-        mPresent = new MainPresenter(new SourceModel());
+        mPresent = new MainPresenter(new AnalogSourceModel());
     }
 
 

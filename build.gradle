@@ -5,13 +5,24 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
+        classpath 'com.android.tools.build:gradle:3.0.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         classpath'me.tatarka:gradle-retrolambda:3.2.5'
     }
+
 }
+
+ext {
+    VERSION_COMPILE_SDK = 25
+
+    VERSION_MIN_SDK = 15
+    VERSION_TARGET_SDK = 25
+
+    SOURCE_COMPATIBILITY = JavaVersion.VERSION_1_8
+}
+
 
 allprojects {
     repositories {

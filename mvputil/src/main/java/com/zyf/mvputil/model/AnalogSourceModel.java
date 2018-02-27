@@ -5,12 +5,13 @@ import android.os.Message;
 import com.zyf.mvputil.UIHandler;
 
 /**
+ * 模拟数据
  * @author zyf
  * @date 2017/12/12
  * @time 17:46
  */
 
-public class SourceModel implements Model {
+public class AnalogSourceModel implements Model {
 
     DataLoadCallback mLoadCallback;
 

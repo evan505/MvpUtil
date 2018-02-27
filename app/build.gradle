@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 android {
     compileSdkVersion 25
-    buildToolsVersion "26.0.1"
     defaultConfig {
         applicationId "com.zyf.mvpdemo"
         minSdkVersion 15
@@ -32,4 +31,8 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     compile project(':mvputil')
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'//ConverterFactory的Gson依赖包
+    compile 'com.squareup.retrofit2:converter-scalars:2.3.0'//ConverterFactory的String依赖包
+    compile 'org.jetbrains:annotations:15.0'
 }

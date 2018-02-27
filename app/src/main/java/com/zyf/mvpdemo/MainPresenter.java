@@ -9,7 +9,7 @@ import com.zyf.mvputil.model.Model;
  * @time 16:34
  */
 
-public class MainPresenter implements MainContract.Presenter {
+public class MainPresenter implements MainContract.Presenter<MainContract.View> {
     MainContract.View mView;
     Model mModel;
 
